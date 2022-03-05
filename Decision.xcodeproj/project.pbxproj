@@ -13,9 +13,14 @@
 		2497BBFB27CD10C300462512 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2497BBF927CD10C300462512 /* Main.storyboard */; };
 		2497BBFD27CD10C500462512 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2497BBFC27CD10C500462512 /* Assets.xcassets */; };
 		2497BC0027CD10C500462512 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2497BBFE27CD10C500462512 /* LaunchScreen.storyboard */; };
+		2497BC0B27CD219200462512 /* fireworks-display.json in Resources */ = {isa = PBXBuildFile; fileRef = 2497BC0A27CD219200462512 /* fireworks-display.json */; };
+		2497BC0D27CD222D00462512 /* 16764-firework-animaiton.json in Resources */ = {isa = PBXBuildFile; fileRef = 2497BC0C27CD222D00462512 /* 16764-firework-animaiton.json */; };
+		2497BC0F27CDCB4000462512 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2497BC0E27CDCB4000462512 /* Colors.swift */; };
+		4A7D2D73FD58D4FC25751722 /* Pods_Decision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A9C036B7A761982CE193B8 /* Pods_Decision.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		139AD85923F05C18CF1AD782 /* Pods-Decision.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decision.debug.xcconfig"; path = "Target Support Files/Pods-Decision/Pods-Decision.debug.xcconfig"; sourceTree = "<group>"; };
 		2497BBF027CD10C300462512 /* Decision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decision.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2497BBF327CD10C300462512 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2497BBF527CD10C300462512 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +29,11 @@
 		2497BBFC27CD10C500462512 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2497BBFF27CD10C500462512 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2497BC0127CD10C500462512 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2497BC0A27CD219200462512 /* fireworks-display.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "fireworks-display.json"; path = "../../../../../Downloads/fireworks-display.json"; sourceTree = "<group>"; };
+		2497BC0C27CD222D00462512 /* 16764-firework-animaiton.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "16764-firework-animaiton.json"; path = "../../../../../Downloads/16764-firework-animaiton.json"; sourceTree = "<group>"; };
+		2497BC0E27CDCB4000462512 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		610662E84E76F368D1A90374 /* Pods-Decision.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decision.release.xcconfig"; path = "Target Support Files/Pods-Decision/Pods-Decision.release.xcconfig"; sourceTree = "<group>"; };
+		B6A9C036B7A761982CE193B8 /* Pods_Decision.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Decision.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A7D2D73FD58D4FC25751722 /* Pods_Decision.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +53,8 @@
 			children = (
 				2497BBF227CD10C300462512 /* Decision */,
 				2497BBF127CD10C300462512 /* Products */,
+				AD6DEBFFBB56979D0356BA09 /* Pods */,
+				7D1E51232AD5E7B55593B975 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +71,41 @@
 			children = (
 				2497BBF327CD10C300462512 /* AppDelegate.swift */,
 				2497BBF527CD10C300462512 /* SceneDelegate.swift */,
-				2497BBF727CD10C300462512 /* ViewController.swift */,
-				2497BBF927CD10C300462512 /* Main.storyboard */,
-				2497BBFC27CD10C500462512 /* Assets.xcassets */,
 				2497BBFE27CD10C500462512 /* LaunchScreen.storyboard */,
+				2497BC0727CD1FEF00462512 /* Assets */,
+				2497BC0E27CDCB4000462512 /* Colors.swift */,
+				2497BBF927CD10C300462512 /* Main.storyboard */,
+				2497BBF727CD10C300462512 /* ViewController.swift */,
 				2497BC0127CD10C500462512 /* Info.plist */,
 			);
 			path = Decision;
+			sourceTree = "<group>";
+		};
+		2497BC0727CD1FEF00462512 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2497BBFC27CD10C500462512 /* Assets.xcassets */,
+				2497BC0A27CD219200462512 /* fireworks-display.json */,
+				2497BC0C27CD222D00462512 /* 16764-firework-animaiton.json */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		7D1E51232AD5E7B55593B975 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B6A9C036B7A761982CE193B8 /* Pods_Decision.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD6DEBFFBB56979D0356BA09 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				139AD85923F05C18CF1AD782 /* Pods-Decision.debug.xcconfig */,
+				610662E84E76F368D1A90374 /* Pods-Decision.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +115,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2497BC0427CD10C500462512 /* Build configuration list for PBXNativeTarget "Decision" */;
 			buildPhases = (
+				E98DA576124C11FB2A29AAB1 /* [CP] Check Pods Manifest.lock */,
 				2497BBEC27CD10C300462512 /* Sources */,
 				2497BBED27CD10C300462512 /* Frameworks */,
 				2497BBEE27CD10C300462512 /* Resources */,
+				4A97737707BE28BCFF6A9628 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,13 +168,57 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2497BC0D27CD222D00462512 /* 16764-firework-animaiton.json in Resources */,
 				2497BC0027CD10C500462512 /* LaunchScreen.storyboard in Resources */,
 				2497BBFD27CD10C500462512 /* Assets.xcassets in Resources */,
 				2497BBFB27CD10C300462512 /* Main.storyboard in Resources */,
+				2497BC0B27CD219200462512 /* fireworks-display.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4A97737707BE28BCFF6A9628 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Decision/Pods-Decision-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Decision/Pods-Decision-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Decision/Pods-Decision-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E98DA576124C11FB2A29AAB1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Decision-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2497BBEC27CD10C300462512 /* Sources */ = {
@@ -139,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2497BBF827CD10C300462512 /* ViewController.swift in Sources */,
+				2497BC0F27CDCB4000462512 /* Colors.swift in Sources */,
 				2497BBF427CD10C300462512 /* AppDelegate.swift in Sources */,
 				2497BBF627CD10C300462512 /* SceneDelegate.swift in Sources */,
 			);
@@ -284,6 +372,7 @@
 		};
 		2497BC0527CD10C500462512 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 139AD85923F05C18CF1AD782 /* Pods-Decision.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -312,6 +401,7 @@
 		};
 		2497BC0627CD10C500462512 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 610662E84E76F368D1A90374 /* Pods-Decision.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
