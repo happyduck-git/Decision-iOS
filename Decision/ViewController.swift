@@ -46,19 +46,15 @@ class ViewController: UIViewController {
         return stackView
     }()
     
-    private let testView: UIView = {
+    private let circleView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
-        view.frame = CGRect(x: 65, y: 50, width: 300, height: 300)
         view.layer.cornerRadius = 300/2
-//        view.layer.borderWidth = 5
-//        view.layer.borderColor = UIColor(red: 255/255, green: 188/255, blue: 188/255, alpha: 1).cgColor
-        
+
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
 
-    
     private let candidatesTextField1: UITextField = {
         let textField = UITextField()
         textField.placeholder = "1st option here"
@@ -77,7 +73,7 @@ class ViewController: UIViewController {
     
     private let candidatesTextField2: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "2nd Option here"
+        textField.placeholder = "2nd option here"
         textField.layer.borderWidth = 2
         textField.layer.borderColor = UIColor(red: 255/255, green: 188/255, blue: 188/255, alpha: 1).cgColor
         textField.layer.cornerRadius = 5
@@ -91,7 +87,7 @@ class ViewController: UIViewController {
         return textField
     }()
     
-    private let spinningBtn: HighlightedButton = {
+    private lazy var spinningBtn: HighlightedButton = {
         let button = HighlightedButton()
         button.setTitle("My fate", for: .normal)
         button.setTitleColor(.darkGray, for: .normal)
@@ -119,7 +115,7 @@ class ViewController: UIViewController {
         return label
     }()
     
-    private let restartBtn: UIButton = {
+    private lazy var restartBtn: UIButton = {
         let button = UIButton()
         button.setTitle("Redo", for: .normal)
         button.setTitleColor(.black, for: .normal)
@@ -142,7 +138,7 @@ class ViewController: UIViewController {
         
         view.backgroundColor = UIColor(red: 255/255, green: 188/255, blue: 188/255, alpha: 1.0)
         
-        view.addSubview(testView)
+        view.addSubview(circleView)
         view.addSubview(titleLabel)
         view.addSubview(candidatesTextField1)
         view.addSubview(candidatesTextField2)
@@ -152,11 +148,20 @@ class ViewController: UIViewController {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-
       
         layout()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         animate()
     }
+
+    var topAnchor: NSLayoutConstraint?
+    var centerXAnchor: NSLayoutConstraint?
+    var widthAnchor: NSLayoutConstraint?
+    var heighAnchor: NSLayoutConstraint?
     
     private func layout() {
         titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
@@ -173,58 +178,68 @@ class ViewController: UIViewController {
         
         answerLabel.topAnchor.constraint(equalTo: spinningBtn.bottomAnchor, constant: 100).isActive = true
         answerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//
-//        testStackView.addArrangedSubview(testView)
-//        testView.center = testStackView.center
-
+        
+        topAnchor = circleView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 27)
+        centerXAnchor = circleView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        widthAnchor = circleView.widthAnchor.constraint(equalToConstant: 300)
+        heighAnchor = circleView.heightAnchor.constraint(equalToConstant: 300)
+        topAnchor?.isActive = true
+        centerXAnchor?.isActive = true
+        widthAnchor?.isActive = true
+        heighAnchor?.isActive = true
     }
     
     @objc func selectChoice() {
         
-        spinningBtn.isEnabled = false
-        if let firstChoice = candidatesTextField1.text {
-            choices.append(firstChoice)
-        } else {
+        if candidatesTextField1.text != "" && candidatesTextField2.text != "" {
+            spinningBtn.isEnabled = false
+            if let firstChoice = candidatesTextField1.text {
+                choices.append(firstChoice)
+            } else {
+                
+            }
+            if let secondChoice = candidatesTextField2.text {
+                choices.append(secondChoice)
+            }
+            print(choices)
             
-        }
-        if let secondChoice = candidatesTextField2.text {
-            choices.append(secondChoice)
-        }
-        print(choices)
-        
-        let randomElement = choices.randomElement()
-        answerLabel.text = "\(randomElement ?? "에러")!"
-        
-        //다시하기 버튼
-        view.addSubview(restartBtn)
+            let randomElement = choices.randomElement()
+            answerLabel.text = "\(randomElement ?? "에러")!"
+            
+            //다시하기 버튼
+            view.addSubview(restartBtn)
 
-//        restartBtn.setTitleColor(.black, for: .normal)
-//        restartBtn.layer.borderColor = UIColor.black.cgColor
-        restartBtn.addTarget(self, action: #selector(restart), for: .touchUpInside)
-        restartBtn.topAnchor.constraint(equalTo: answerLabel.bottomAnchor, constant: 100).isActive = true
-        restartBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+            restartBtn.addTarget(self, action: #selector(restart), for: .touchUpInside)
+            restartBtn.topAnchor.constraint(equalTo: answerLabel.bottomAnchor, constant: 100).isActive = true
+            restartBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+            
+            //view 배경 alpha 값 변경
+            view.backgroundColor = UIColor(red: 255/255, green: 188/255, blue: 188/255, alpha: 0.5)
+            circleView.backgroundColor = UIColor(white: 0.5, alpha: 0.5)
+            circleView.layer.borderColor = UIColor(red: 255/255, green: 188/255, blue: 188/255, alpha: 0.5).cgColor
+            candidatesTextField1.layer.borderColor = UIColor.darkGray.cgColor
+            candidatesTextField2.layer.borderColor = UIColor.darkGray.cgColor
+            candidatesTextField1.textColor = .darkGray
+            candidatesTextField2.textColor = .darkGray
+            spinningBtn.setTitleColor(.gray, for: .normal)
+            spinningBtn.backgroundColor = UIColor.gray
+            
+            //폭죽 애니메이션
+            animationView = .init(name: "16764-firework-animaiton")
+            view.addSubview(animationView!)
+            animationView?.frame = view.bounds
+            animationView?.play(completion: { (finished) in
+                self.animationView?.isHidden = true
+            })
+            animationView?.loopMode = .repeat(2.0)
+
+            view.endEditing(true)
+        } else if candidatesTextField1.text == "" {
+            alertViewforFirstOption()
+        } else if candidatesTextField2.text == "" {
+            alertViewforSecondOption()
+        }
         
-        //view 배경 alpha 값 변경
-        view.backgroundColor = UIColor(red: 255/255, green: 188/255, blue: 188/255, alpha: 0.5)
-        testView.backgroundColor = UIColor(white: 0.5, alpha: 0.5)
-        testView.layer.borderColor = UIColor(red: 255/255, green: 188/255, blue: 188/255, alpha: 0.5).cgColor
-        candidatesTextField1.layer.borderColor = UIColor(red: 255/255, green: 188/255, blue: 188/255, alpha: 0.5).cgColor
-        candidatesTextField2.layer.borderColor = UIColor(red: 255/255, green: 188/255, blue: 188/255, alpha: 0.5).cgColor
-        candidatesTextField1.textColor = .darkGray
-        
-        
-        //폭죽 애니메이션
-        
-        animationView = .init(name: "16764-firework-animaiton")
-        view.addSubview(animationView!)
-        animationView?.frame = view.bounds
-        animationView?.play(completion: { (finished) in
-            self.animationView?.isHidden = true
-        })
-        animationView?.loopMode = .repeat(2.0)
-        
-        //
-        view.endEditing(true)
     }
     
     @objc func nothing() {
@@ -239,10 +254,13 @@ class ViewController: UIViewController {
         spinningBtn.isEnabled = true
         restartBtn.removeFromSuperview()
         view.backgroundColor = UIColor(red: 255/255, green: 188/255, blue: 188/255, alpha: 1.0)
-        testView.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
-        testView.layer.borderColor = UIColor(red: 255/255, green: 188/255, blue: 188/255, alpha: 1.0).cgColor
+        circleView.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
+        circleView.layer.borderColor = UIColor(red: 255/255, green: 188/255, blue: 188/255, alpha: 1.0).cgColor
         candidatesTextField1.layer.borderColor = UIColor(red: 255/255, green: 188/255, blue: 188/255, alpha: 1.0).cgColor
         candidatesTextField2.layer.borderColor = UIColor(red: 255/255, green: 188/255, blue: 188/255, alpha: 1.0).cgColor
+        candidatesTextField1.textColor = .black
+        candidatesTextField2.textColor = .black
+        spinningBtn.setTitleColor(.black, for: .normal)
     }
     
     @objc func dismissKeyboard() {
@@ -250,36 +268,55 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
     
+    //Alert view#1
+    func alertViewforFirstOption() {
+        let alert = UIAlertController(title: "Please input 1st option", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default) { action in
+            //OK 버튼을 눌렀을 때 발생할 일
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    //Alert view#2
+    func alertViewforSecondOption() {
+        let alert = UIAlertController(title: "Please input 2nd option", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default) { action in
+            //OK 버튼을 눌렀을 때 발생할 일
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    //Animation
     func animate() {
-        UIView.animate(withDuration: 1) {
-            self.testView.frame = CGRect(x: 65, y: 50, width: 300, height: 300)
-            self.testView.layer.cornerRadius = 300/2
-            
-//            self.testView.center = self.view.center
-
-        } completion: { done in
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveLinear, animations: {
+            self.topAnchor?.constant = 27
+            self.widthAnchor?.constant = 300
+            self.heighAnchor?.constant = 300
+            self.circleView.layer.cornerRadius = 300/2
+            self.view.layoutIfNeeded()
+        }, completion: { done in
             if done {
                 self.shrink()
             }
-        }
+        })
     }
 
     func shrink() {
-        UIView.animate(withDuration: 1) {
-            self.testView.frame = CGRect(x: 80, y: 70, width: 270, height: 270)
-            self.testView.layer.cornerRadius = 270/2
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveLinear, animations: {
+            self.topAnchor?.constant = 33
+            self.widthAnchor?.constant = 285
+            self.heighAnchor?.constant = 285
+            self.circleView.layer.cornerRadius = 285/2
+            self.view.layoutIfNeeded()
 
-//            self.testView.center = self.view.center
-
-        } completion: { done in
+        }, completion: { done in
             if done {
                 self.animate()
             }
-        }
+        })
     }
-
-
-
 }
 
 extension ViewController: UITextFieldDelegate {

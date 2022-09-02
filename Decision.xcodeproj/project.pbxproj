@@ -71,12 +71,12 @@
 			children = (
 				2497BBF327CD10C300462512 /* AppDelegate.swift */,
 				2497BBF527CD10C300462512 /* SceneDelegate.swift */,
-				2497BBFE27CD10C500462512 /* LaunchScreen.storyboard */,
-				2497BC0727CD1FEF00462512 /* Assets */,
-				2497BC0E27CDCB4000462512 /* Colors.swift */,
 				2497BBF927CD10C300462512 /* Main.storyboard */,
+				2497BBFE27CD10C500462512 /* LaunchScreen.storyboard */,
+				2497BC0E27CDCB4000462512 /* Colors.swift */,
 				2497BBF727CD10C300462512 /* ViewController.swift */,
 				2497BC0127CD10C500462512 /* Info.plist */,
+				2497BC0727CD1FEF00462512 /* Assets */,
 			);
 			path = Decision;
 			sourceTree = "<group>";
