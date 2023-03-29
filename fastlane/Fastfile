@@ -1,0 +1,43 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Description of what the lane does"
+  lane :prod_lane do
+    app_store_connect_api_key(
+      key_id: "AV4GFR56SZ",
+      issuer_id: "275d0916-b3a7-4b76-9a4f-1073bfa3795c",
+      key_content: "LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JR1RBZ0VBTUJNR0J5cUdTTTQ5QWdFR0NDcUdTTTQ5QXdFSEJIa3dkd0lCQVFRZ1NrTmcrYnN6SWVYTi9Xa2IKL3JZU1Z2MTVvQ2VHVjBZYlRGUG9pR29sVFZPZ0NnWUlLb1pJemowREFRZWhSQU5DQUFTZ3NkaTZzTXhiL3ZUZwpLWTJEd0Fuck1FdDI2aEhLbXlpMjF3bFUxZGxEaTl4dXpKMTBnT2FFam9zN2M5ZHRnUkRlL3ZNYkNPM1pzdlNICndjUEJBbEo1Ci0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0=",
+      is_key_content_base64: true,
+      in_house: false
+      )
+      produce(
+        username: "rkrudtls@naver.com",
+        app_identifier: "com.gghoneycomb.Decision",
+        app_name: "DecisionFairy"
+      )
+  end
+
+  lane :get_dev_certs do
+    cert(
+      development: true
+    )
+    sigh(
+      development: true
+    )
+    end
+end
