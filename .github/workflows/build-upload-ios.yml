@@ -5,7 +5,7 @@ on: workflow_dispatch
 jobs:
  deploy:
    runs-on: macos-latest
-   steps:
+   setps:
      - uses: actions/checkout@v2
  
      - name: Set up ruby env
