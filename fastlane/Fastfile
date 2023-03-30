@@ -21,7 +21,7 @@ platform :ios do
     app_store_connect_api_key(
       key_id: ENV["ASC_KEY_ID"],
       issuer_id: ENV["ASC_ISSUER_ID"],
-      key_content: ENV["ASC_KEY"],
+      key_content: ENV["ASC_PRIVATE_KEY"],
       is_key_content_base64: true,
       in_house: false
       )
@@ -70,9 +70,6 @@ platform :ios do
         readonly: true
       )
     end
-   
-   
-   
    
    desc "Build the iOS app for release"
    lane :build_release do |options|
