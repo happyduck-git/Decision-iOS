@@ -26,7 +26,6 @@ platform :ios do
       in_house: false
       )
   end
-end
 
   lane :get_dev_certs do
     cert(
@@ -129,4 +128,4 @@ end
     build_release
     upload_release
   end
-
+end
