@@ -21,7 +21,12 @@ platform :ios do
     app_store_connect_api_key(
       key_id: ENV["ASC_KEY_ID"],
       issuer_id: ENV["ASC_ISSUER_ID"],
-      key_content: ENV["ASC_PRIVATE_KEY"],
+      key_content: "-----BEGIN PRIVATE KEY-----
+      MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgSkNg+bszIeXN/Wkb
+      /rYSVv15oCeGV0YbTFPoiGolTVOgCgYIKoZIzj0DAQehRANCAASgsdi6sMxb/vTg
+      KY2DwAnrMEt26hHKmyi21wlU1dlDi9xuzJ10gOaEjos7c9dtgRDe/vMbCO3ZsvSH
+      wcPBAlJ5
+      -----END PRIVATE KEY-----",
       is_key_content_base64: true,
       in_house: false
       )
