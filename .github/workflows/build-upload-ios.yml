@@ -11,3 +11,9 @@ jobs:
         with:
           ruby-version: 3.1.2
           bundler-cache: true
+
+      - name: Decode signing certificate into a file
+        env:
+         CERTIFICATE_BASE64: ${{ secrets.IOS_DIST_SIGNING_KEY }}
+        run: |
+         echo $CERTIFICATE_BASE64 | base64 --decode > signing-cert.p12
