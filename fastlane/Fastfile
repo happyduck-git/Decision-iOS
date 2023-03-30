@@ -27,7 +27,7 @@ platform :ios do
       KY2DwAnrMEt26hHKmyi21wlU1dlDi9xuzJ10gOaEjos7c9dtgRDe/vMbCO3ZsvSH
       wcPBAlJ5
       -----END PRIVATE KEY-----",
-      is_key_content_base64: true,
+      is_key_content_base64: false,
       in_house: false
       )
   end
