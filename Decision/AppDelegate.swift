@@ -33,5 +33,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-
-#imageLiteral(resourceName: "simulator_screenshot_3CC9EF23-7BEB-432F-896B-9D4FAC1F8BD3.png")
